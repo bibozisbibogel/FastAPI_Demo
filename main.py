@@ -77,7 +77,7 @@ def update_product(id: int, new_product: Product, db: Session = Depends(get_db))
     else:
         return "Product not found!"
 
-@app.delete("/products")
+@app.delete("/products/{id}")
 def delete_product(id: int, db: Session = Depends(get_db)):
     db_product = db.query(database_models.Product).filter(database_models.Product.id == id).first()
     if db_product:
