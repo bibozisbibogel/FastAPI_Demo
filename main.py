@@ -11,7 +11,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["http://localhost:3000"]
+    allow_origins = ["http://localhost:3000"],
+    allow_methods = ["*"]
 )
 
 database_models.Base.metadata.create_all(bind=engine)
